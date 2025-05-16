@@ -2,16 +2,16 @@
 
 **ToDo-App** es una aplicación de lista de tareas desarrollada con tecnologías modernas como Ionic, Vite, TypeScript y Capacitor. Su objetivo es ofrecer una experiencia fluida y responsiva para la gestión de tareas diarias, tanto en dispositivos móviles como en navegadores web.
 
-![foto appList](public/imagenReadme.png)
+![Captura de la app](public/imagenReadme.png)
 
 ## 🚀 Características
 
-- ✅ Añadir, editar y eliminar tareas de forma sencilla.
-- 📱 Interfaz adaptable a dispositivos móviles y de escritorio.
-- ⚡️ Desempeño optimizado gracias a Vite.
+- ✅ Crear, editar y eliminar tareas de forma sencilla.
+- 📱 Interfaz adaptable a dispositivos móviles y escritorios.
+- ⚡️ Desempeño optimizado con Vite.
 - 🧪 Pruebas automatizadas con Cypress.
-- 🔌 Preparada para despliegue como aplicación móvil mediante Capacitor.
-- 🧩 Código modular y mantenible con TypeScript.
+- 🔌 Compatible con despliegue móvil gracias a Capacitor.
+- 🧩 Código modular y mantenible utilizando TypeScript.
 
 ## 🛠️ Tecnologías utilizadas
 
@@ -21,13 +21,18 @@
 - [Capacitor](https://capacitorjs.com/)
 - [Cypress](https://www.cypress.io/)
 
-## Sobre la app
-    Es una aplicacion sencilla, se basa en una lista de tareas, la estructura del proyecto no contempla grandes escaladas de funcionalidades
+## 📋 Sobre la aplicación
 
-## Estado del desarrollo
-    - Tenemos una app en estado Beta, ya que se pueden crear tareas pero aun no de desarrollo el comportamiento de las tareas completadas.
+Se trata de una aplicación sencilla centrada en la gestión de tareas. La estructura actual del proyecto está diseñada para casos básicos de uso y no contempla, por el momento, una expansión a funcionalidades más complejas.
 
-## To-Do
-    -agregar una descripcion de las tareas, que al igual que el estado de prioridad, debe tener un valor por defecto.
-    -agregar comportamiento de tareas completadas.
-    -agregar logica de persistencia (posiblemente en memoria local)
+## 🔧 Estado actual del desarrollo
+
+La aplicación se encuentra en estado **Beta**. Actualmente permite crear y editar tareas, pero aún no se ha implementado el manejo de tareas completadas ni la persistencia de datos.
+
+## 📝 Próximas mejoras (To-Do)
+
+- Agregar una descripción a cada tarea, con un valor por defecto.
+- Implementar el marcado de tareas como completadas.
+- Añadir lógica de persistencia, posiblemente utilizando almacenamiento local (localStorage).
+
+---
