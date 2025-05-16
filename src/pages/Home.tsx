@@ -102,6 +102,7 @@ const Home: React.FC = () => {
                       </IonSelect>
                     </IonCol>
                   </IonRow>
+                  {/* por aca va la descripcion */}
                 </IonGrid>
 
               </div>
