@@ -1,0 +1,7 @@
+{
+  "name": "lista_tareas_react_simple",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
