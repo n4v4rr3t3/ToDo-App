@@ -19,6 +19,7 @@ import ListaDeTareas from '../components/ListaDeTareas';
 
 const Home: React.FC = () => {
   const tareaRef = useRef<HTMLIonInputElement>(null);
+  const tareaDes = useRef<HTMLIonInputElement>(null);
   let fechaActual: Date = new Date();
   let valorPrioridad: string = "Media";
 
@@ -44,12 +45,13 @@ const Home: React.FC = () => {
   const agregarTarea = () => {
     // const descripcion = tareaRef.current?.value as string;
     const tituloTarea = tareaRef.current?.value as string;
+    const DesTarea = tareaDes.current?.value as string;
     if (tituloTarea) {
       const nuevaTarea = {
         id: tareas.length + 1,
         // nombre: `Nueva tarea ${tareas.length + 1}`,
         nombre: tituloTarea,
-        descripcion: "descripcion",
+        descripcion: DesTarea,
         fechaLimite: fechaActual.getDate() +
           "/" +
           (fechaActual.getMonth() + 1) +
@@ -102,7 +104,11 @@ const Home: React.FC = () => {
                       </IonSelect>
                     </IonCol>
                   </IonRow>
-                  {/* por aca va la descripcion */}
+                  <IonInput
+                    ref={tareaDes}
+                    placeholder="Descripcion de la nueva tarea"
+                    style={{ maxWidth: '300px', margin: '0 auto' }}
+                  />
                 </IonGrid>
 
               </div>

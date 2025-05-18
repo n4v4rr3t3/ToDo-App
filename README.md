@@ -31,7 +31,6 @@ La aplicación se encuentra en estado **Beta**. Actualmente permite crear y edit
 
 ## 📝 Próximas mejoras (To-Do)
 
-- Agregar una descripción a cada tarea, con un valor por defecto.
 - Implementar el marcado de tareas como completadas.
 - Añadir lógica de persistencia, posiblemente utilizando almacenamiento local (localStorage).
 
