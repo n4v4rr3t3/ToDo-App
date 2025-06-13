@@ -9,13 +9,14 @@ interface ListaDeTareasProps {
         fechaLimite?: string;
         prioridad: string;
     }[];
+    onEliminar: (id: number) => void;
 }
 
-const ListaDeTareas: React.FC<ListaDeTareasProps> = ({ tareas }) => {
+const ListaDeTareas: React.FC<ListaDeTareasProps> = ({ tareas, onEliminar }) => {
     return (
         <div>
             {tareas.map((tarea) => (
-                <Tarea key={tarea.id} {...tarea} />
+                <Tarea key={tarea.id} {...tarea} onEliminar={onEliminar} />
             ))}
         </div>
     );

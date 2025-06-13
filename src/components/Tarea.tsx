@@ -7,9 +7,10 @@ interface TareaProps {
     descripcion?: string;
     fechaLimite?: string;
     prioridad: string;
+    onEliminar: (id: number) => void;
 }
 
-const Tarea: React.FC<TareaProps> = ({ id, nombre, descripcion, fechaLimite, prioridad }) => {
+const Tarea: React.FC<TareaProps> = ({ id, nombre, descripcion, fechaLimite, prioridad, onEliminar }) => {
     //   const [completa, setCompleta] = useState(false);
     // Estado local de la tarea
     const [completa, setCompleta] = useState(false);
@@ -36,6 +37,9 @@ const Tarea: React.FC<TareaProps> = ({ id, nombre, descripcion, fechaLimite, pri
                         <div><strong>Prioridad: </strong>{prioridad}</div>
                     </IonLabel>
                     <IonCheckbox checked={completa} onIonChange={() => setCompleta(!completa)} slot="start" />
+                    <IonButton color="danger" onClick={() => onEliminar(id)}>
+            Eliminar
+          </IonButton>
                 </IonItem>
             </IonCardContent>
         </IonCard>

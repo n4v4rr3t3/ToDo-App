@@ -25,7 +25,7 @@ const Home: React.FC = () => {
 
   const [tareas, setTareas] = useState([
     {
-      id: 2,
+      id: 1,
       nombre: 'Estudiar React',
       descripcion: 'Revisar hooks y contexto',
       fechaLimite: fechaActual.getDate() +
@@ -65,8 +65,15 @@ const Home: React.FC = () => {
       };
       setTareas([...tareas, nuevaTarea]);
       tareaRef.current!.value = ""; // Limpiar el input después de agregar
+      tareaDes.current!.value = ""; // Limpiar el input después de agregar
     }
   };
+
+  const eliminarTarea = (id: number) => {
+    const nuevasTareas = tareas.filter((tarea) => tarea.id !== id);
+    setTareas(nuevasTareas);
+  };
+
 
   return (
     <IonPage>
@@ -123,7 +130,7 @@ const Home: React.FC = () => {
           </IonButton>
         </div>
 
-        <ListaDeTareas tareas={tareas} />
+        <ListaDeTareas tareas={tareas} onEliminar={eliminarTarea} />
       </IonContent>
 
     </IonPage>
