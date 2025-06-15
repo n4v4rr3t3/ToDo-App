@@ -31,7 +31,10 @@ La aplicación se encuentra en estado **Beta**. Actualmente permite crear y edit
 
 ## 📝 Próximas mejoras (To-Do)
 
-- Implementar el marcado de tareas como completadas.
-- Añadir lógica de persistencia, posiblemente utilizando almacenamiento local (localStorage).
+- Implementar el marcado de tareas como completadas (lista de tareas completadas).
+- Edicion de tareas
+- modo noche
+- tiempo de realizacion de tarea / fecha estimada de finalizacion
+- multi idiomas
 
 ---

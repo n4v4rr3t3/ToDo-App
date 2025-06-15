@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import {
   IonItem,
   IonList,
@@ -22,6 +22,7 @@ const Home: React.FC = () => {
   const tareaDes = useRef<HTMLIonInputElement>(null);
   let fechaActual: Date = new Date();
   let valorPrioridad: string = "Media";
+  let [numeroTarea, setnumeroTarea] = useState(0);
 
   const [tareas, setTareas] = useState([
     {
@@ -37,19 +38,28 @@ const Home: React.FC = () => {
         +fechaActual.getHours() +
         ":" +
         +fechaActual.getMinutes(),
-      // fechaLimite: '2025-02-02',
       prioridad: 'Media'
     },
   ]);
 
+  // Cargar desde localStorage al iniciar
+  useEffect(() => {
+    const savedTasks = localStorage.getItem('tasks');
+    if (savedTasks) {
+      const tareasParseadas = JSON.parse(savedTasks);
+      setTareas(tareasParseadas);
+      if (tareasParseadas.length > 0) {
+        setnumeroTarea(tareasParseadas[tareasParseadas.length - 1].id + 1);
+      }
+    }
+  }, []);
+
   const agregarTarea = () => {
-    // const descripcion = tareaRef.current?.value as string;
     const tituloTarea = tareaRef.current?.value as string;
     const DesTarea = tareaDes.current?.value as string;
     if (tituloTarea) {
       const nuevaTarea = {
-        id: tareas.length + 1,
-        // nombre: `Nueva tarea ${tareas.length + 1}`,
+        id: numeroTarea,
         nombre: tituloTarea,
         descripcion: DesTarea,
         fechaLimite: fechaActual.getDate() +
@@ -63,7 +73,9 @@ const Home: React.FC = () => {
           +fechaActual.getMinutes(),
         prioridad: valorPrioridad,
       };
+      localStorage.setItem('tasks', JSON.stringify([...tareas, nuevaTarea]))
       setTareas([...tareas, nuevaTarea]);
+      setnumeroTarea(numeroTarea + 1)
       tareaRef.current!.value = ""; // Limpiar el input después de agregar
       tareaDes.current!.value = ""; // Limpiar el input después de agregar
     }
@@ -71,6 +83,7 @@ const Home: React.FC = () => {
 
   const eliminarTarea = (id: number) => {
     const nuevasTareas = tareas.filter((tarea) => tarea.id !== id);
+    localStorage.setItem('tasks', JSON.stringify(nuevasTareas))
     setTareas(nuevasTareas);
   };
 
@@ -131,6 +144,9 @@ const Home: React.FC = () => {
         </div>
 
         <ListaDeTareas tareas={tareas} onEliminar={eliminarTarea} />
+        {/* <TareasCompletadas tareas={tareas} onEliminar={eliminarTarea} />  
+        Aca hay que crear nuevo componente para tareas terminadas
+        */}
       </IonContent>
 
     </IonPage>

@@ -36,10 +36,10 @@ const Tarea: React.FC<TareaProps> = ({ id, nombre, descripcion, fechaLimite, pri
                         <small>Fecha: {fechaLimite}</small>
                         <div><strong>Prioridad: </strong>{prioridad}</div>
                     </IonLabel>
-                    <IonCheckbox checked={completa} onIonChange={() => setCompleta(!completa)} slot="start" />
+                    <IonCheckbox checked={completa} onIonChange={toggleCompleta} slot="start" />
                     <IonButton color="danger" onClick={() => onEliminar(id)}>
-            Eliminar
-          </IonButton>
+                        Eliminar
+                    </IonButton>
                 </IonItem>
             </IonCardContent>
         </IonCard>
